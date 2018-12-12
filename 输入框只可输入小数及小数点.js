@@ -1,1 +1,0 @@
-<input name="" value="" onkeyup="value=value.replace(/[^\d{1,}\.\d{1,}|\d{1,}]/g,'')"/>

@@ -1,0 +1,2 @@
+﻿$('input').bind('input propertychange', function() { }); 
+$('input').on("input",function(){})

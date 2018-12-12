@@ -1,0 +1,4 @@
+﻿阻止右键
+oncontextmenu=self.event.returnValue=false
+阻止左键选中
+onselectstart="return false"

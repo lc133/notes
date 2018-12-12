@@ -1,0 +1,10 @@
+﻿var values = $("input[type=checkbox]").map(function(){
+      return $(this).val();
+}).get();
+$.ajax{
+      url:"xxxx",
+      traditional: true,
+      data:{
+            p: values
+      }
+}　　
