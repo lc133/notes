@@ -1,0 +1,16 @@
+﻿ 字段
+  tokengrant_type：client_credential；
+  appid：wxbc7fcb4cb13fe58d；
+  secret：13bcf95723f12aec3d797332856001ae；
+  scene：二维码携带的参数最大32个可见字符，只支持数字，大小写英文以及部分特殊字符：!#$&'()*+,/:;=?@-._~，其它字符请自行编码为合法字符（因不支持%，中文无法使用 urlencode 处理，请使用其他编码方式），因此需进行encodeURIComponent
+
+二维码生成流程
+  1.获取 access_token
+    GET https://api.weixin.qq.com/cgi-bin/tokengrant_type=client_credential&appid=APPID&secret=APPSECRET
+
+  2.根据access_token获取二维码图片(二进制)
+    POST https://api.weixin.qq.com/wxa/getwxacodeunlimit?access_token=ACCESS_TOKEN&scene=*****
+    接口只能生成已发布的小程序的二维码；    
+    适用于需要的码数量极多的业务场景,通过该接口生成的小程序码，永久有效，数量暂无限制；
+    接口调用分钟频率受限(目前5000次/分钟，会调整)，如需大量小程序码，建议预生成；
+  

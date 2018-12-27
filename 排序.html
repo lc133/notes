@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+	</head>
+
+	<body>
+		<script>
+			function seqencing(arr, start, end) {
+				function swap(arr, i, k) {
+					let temp = arr[i];
+					arr[i] = arr[k];
+					arr[k] = temp;
+				};
+				// 数组分区，左小右大
+				function partition(arr, left, right) {
+					let storeIndex = left;
+					let pivot = arr[right]; // 直接选最右边的元素为基准元素
+					for(let i = left; i < right; i++) {
+						if(arr[i] < pivot) {
+							swap(arr, storeIndex, i);
+							storeIndex++; // 交换位置后，storeIndex 自增 1，代表下一个可能要交换的位置
+						};
+					};
+					swap(arr, storeIndex, right); // 将基准元素放置到最后的正确位置上
+					return storeIndex;
+				};
+
+				function sort(arr, left, right) {
+					if(left > right) {
+						return
+					};
+					let storeIndex = partition(arr, left, right);
+					sort(arr, left, storeIndex - 1);
+					sort(arr, storeIndex + 1, right);
+				};
+				sort(arr, start, end);
+				return arr;
+			};
+
+			console.log(seqencing([3, 123213, 0, 456566, 999,123123, 9, 5, 4], 0, 8)); // 只对部分元素排序
+
+			function findMax(arr) {
+				let result = 0;
+				if(Array.isArray(arr) && arr.length > 0) {
+					for(let i = 0; i < arr.length; i++) {
+						result = arr[i] > result ? arr[i] : result;
+					};
+					return result
+				} else {
+					throw new ReferenceError('参数 arr 无效');
+				};
+			};
+
+			console.log(findMax([888, 9999, 0, 9, 8, 9, 0, 777777]))
+		</script>
+	</body>
+
+</html>
