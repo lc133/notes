@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script>
+        !function (e) { "use strict"; var t = document.documentElement, i = Math.min(Math.floor(window.devicePixelRatio), 3), n = 1 / i, a = document.querySelector('meta[name="viewport"]'), r = "initial-scale=" + n + ",width=device-width,viewport-fit=cover"; if (a) { a.setAttribute("content", r) } else { var o = '<meta name="viewport" content="' + r + '"/>'; document.write(o) } var c = function () { var e = t.clientWidth || screen.availWidth * i; if (e / i > 450) { e = 450 * i } var n = e / 750 * 100; t.style.fontSize = n + "px", t.setAttribute("data-dpr", i) }; c(), window.addEventListener("resize", c) }()
+    </script>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-touch-fullscreen" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no, address=no" />
+    <title>rem</title>
+
+</head>
+
+<body>
+    <script>
+        function rem2px(d) {
+            var rem = document.documentElement.style.fontSize.slice(0, -2);
+            var val = parseFloat(d) * (rem - 0);
+            if (typeof d === 'string' && d.match(/rem$/)) {
+                val += '';
+            }
+            return val;
+        };
+    </script>
+</body>
+
+</html>
